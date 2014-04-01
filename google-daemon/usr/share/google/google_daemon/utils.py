@@ -69,7 +69,7 @@ class System(object):
   def UserAdd(self, user, groups):
     logging.info('Creating account %s', user)
     result = self.RunCommand([
-        '/usr/sbin/useradd', user, '-m', '-s', '/bin/bash', '-G',
+        '/usr/sbin/useradd', user, '-m', '-s', '/bin/bash', '-p', '*', '-G',
         ','.join(groups)])
     if self.RunCommandFailed(result, 'Could not create user %s', user):
       return False
